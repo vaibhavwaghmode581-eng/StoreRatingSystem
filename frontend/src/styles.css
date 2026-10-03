@@ -1,0 +1,822 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #2563eb;
+}
+
+/* Page */
+
+.page-container,
+.dashboard-container {
+  min-height: 100vh;
+  padding: 30px;
+}
+
+/* Header */
+
+.page-header,
+.dashboard-header {
+  background: white;
+  padding: 22px 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.page-header h1,
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.page-header p,
+.dashboard-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+
+.primary-button {
+  background: #2563eb;
+  color: white;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+.secondary-button {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.secondary-button:hover {
+  background: #cbd5e1;
+}
+
+.danger-button,
+.logout-button {
+  background: #dc2626;
+  color: white;
+}
+
+.danger-button:hover,
+.logout-button:hover {
+  background: #b91c1c;
+}
+
+.success-button {
+  background: #16a34a;
+  color: white;
+}
+
+.back-button {
+  background: #2563eb;
+  color: white;
+}
+
+.back-button:hover {
+  background: #1d4ed8;
+}
+
+/* Cards */
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* Dashboard */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+}
+
+.stat-card h3 {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* Search and Filters */
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.search-section {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.search-section input {
+  max-width: 600px;
+}
+
+/* Section */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+/* Table */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+  color: #334155;
+  font-size: 14px;
+}
+
+td {
+  color: #475569;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+/* Stores */
+
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.store-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.store-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.store-card p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.rating-section {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.rating-button {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+}
+
+.rating-button.selected {
+  background: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+}
+
+.rating-loading {
+  color: #2563eb !important;
+}
+
+.rating-success {
+  color: #15803d !important;
+  font-weight: 600;
+}
+
+.rating-error {
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+/* Forms */
+
+.form-container {
+  max-width: 650px;
+  margin: 30px auto;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-actions,
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Password Page */
+
+.password-form {
+  width: 650px;
+  max-width: 100%;
+  margin: 30px auto;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.password-form h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.password-description {
+  color: #64748b;
+  margin: 0 0 25px;
+}
+
+.password-hint {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-top: 10px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.password-hint strong {
+  color: #334155;
+}
+
+.password-hint ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.password-hint li {
+  margin-bottom: 4px;
+}
+
+.password-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.password-buttons button {
+  min-width: 130px;
+}
+
+/* Password buttons */
+
+.cancel-button {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.cancel-button:hover {
+  background: #cbd5e1 !important;
+}
+
+.update-button {
+  background: #2563eb !important;
+  color: white !important;
+}
+
+.update-button:hover {
+  background: #1d4ed8 !important;
+}
+
+/* Messages */
+
+.error-message {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.warning-message {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+/* Role */
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .stores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header,
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 650px) {
+  .page-container,
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .stores-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1,
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .password-form {
+    padding: 20px;
+  }
+
+  .password-buttons {
+    justify-content: flex-start;
+  }
+
+  .password-buttons button {
+    min-width: auto;
+  }
+}
+/* Password Page */
+
+.password-page {
+  width: 650px;
+  max-width: calc(100% - 40px);
+  margin: 30px auto;
+  padding: 28px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+}
+
+.password-page h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.password-description {
+  margin: 0 0 25px;
+  color: #64748b;
+}
+
+.password-page .form-group {
+  margin-bottom: 18px;
+}
+
+.password-page .form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.password-page input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.password-page input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.password-hint {
+  margin-top: 10px;
+  padding: 12px 15px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.password-hint strong {
+  color: #334155;
+}
+
+.password-hint ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.password-hint li {
+  margin-bottom: 4px;
+}
+
+.password-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.password-buttons button {
+  min-width: 130px;
+  padding: 10px 16px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.password-buttons .cancel-button {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.password-buttons .cancel-button:hover {
+  background: #cbd5e1;
+}
+
+.password-buttons .update-button {
+  background: #2563eb;
+  color: white;
+}
+
+.password-buttons .update-button:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+  .password-page {
+    width: auto;
+    max-width: none;
+    margin: 20px;
+  }
+
+  .password-buttons {
+    justify-content: flex-start;
+  }
+}
+/* Admin Users */
+
+.admin-users-header {
+  background: white;
+  padding: 22px 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.admin-users-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.admin-users-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+}
+
+.admin-users-header .header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-users-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+}
+
+.admin-users-card h2 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.admin-users-filters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.admin-users-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.admin-users-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-users-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-users-table th,
+.admin-users-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.admin-users-table th {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.admin-users-table th.sortable {
+  cursor: pointer;
+}
+
+.admin-users-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.admin-users-view {
+  background: #2563eb;
+  color: white;
+  padding: 8px 13px;
+}
+
+.admin-users-view:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .admin-users-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-users-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-users-filters {
+    grid-template-columns: 1fr;
+  }
+}
+/* Add Store */
+
+.store-form {
+  width: 650px;
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 28px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.store-form h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.form-description {
+  margin: 0 0 25px;
+  color: #64748b;
+}
+
+.store-form textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.store-form textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.store-form small {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.store-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.store-form .cancel-button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 7px;
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+  text-decoration: none;
+}
+
+.store-form .cancel-button:hover {
+  background: #cbd5e1 !important;
+}
+
+.store-form .primary-button {
+  background: #2563eb;
+  color: white;
+}
+
+.store-form .primary-button:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+  .store-form {
+    width: auto;
+    margin: 20px 0;
+  }
+
+  .store-form .form-actions {
+    justify-content: flex-start;
+  }
+}
